@@ -1,81 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASF SOS — Emergência e geolocalização para surfistas</title>
-<meta name="description" content="Botão de emergência com geolocalização e contatos rápidos para surfistas. Satélite do app ASF.">
-<style>
-:root{--rosa:#e63970;--areia:#fff5ee;--mar:#0b6e6e;--escuro:#12303a}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
-body{background:var(--areia);color:var(--escuro)}
-header{background:linear-gradient(135deg,#cb2d3e,#ef473a);color:#fff;padding:2.5rem 1rem;text-align:center}
-nav{background:var(--escuro);display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem;padding:.5rem;position:sticky;top:0;z-index:10}
-nav a{color:#fff;text-decoration:none;padding:.45rem .7rem;border-radius:.5rem;font-size:.85rem}
-nav a:hover,nav a.ativo{background:var(--rosa)}
-main{max-width:720px;margin:0 auto;padding:2rem 1rem}
-.card{background:#fff;border-radius:1rem;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.card h2{color:#cb2d3e;margin-bottom:.6rem}
-.sos{display:block;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff6b6b,#c0392b);color:#fff;font-size:2rem;font-weight:bold;border:6px solid #fff;box-shadow:0 4px 20px rgba(203,45,62,.5);margin:1.5rem auto;cursor:pointer}
-.sos:active{transform:scale(.95)}
-#coords{text-align:center;color:#555;font-size:.9rem;margin-top:.5rem}
-.contatos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1rem}
-.contatos a{display:block;text-align:center;padding:1rem;border-radius:.75rem;text-decoration:none;color:#fff;font-weight:bold}
-.c1{background:#c0392b}.c2{background:#2980b9}.c3{background:#27ae60}.c4{background:#8e44ad}
-.alerta{background:#fff3cd;border-left:4px solid #cb2d3d;border-radius:.5rem;padding:1rem;margin-top:1rem;font-size:.9rem}
-footer{background:var(--escuro);color:#cfe;padding:1.5rem;text-align:center;font-size:.85rem;margin-top:2rem}
-footer a{color:#ff9ec0}
-</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASF SOS — Emergência no Mar</title>
+<meta name="description" content="Botão de emergência para surfistas: geolocalização, números úteis e protocolo de resgate. Satélite do app ASF.">
+<style>:root{--p:#00a8cc;--pd:#0e2439;--g:#f4d03f;--red:#d7263d}*{box-sizing:border-box;margin:0}body{font-family:system-ui,sans-serif;background:#f6fbfd;color:var(--pd)}nav{background:var(--pd);padding:9px 12px;display:flex;flex-wrap:wrap;gap:6px}nav a{color:#fff;text-decoration:none;font-size:11px;font-weight:600;padding:4px 8px;border-radius:20px;background:rgba(255,255,255,.08)}nav a.hub{background:var(--g);color:var(--pd)}header{padding:32px 20px;text-align:center;background:linear-gradient(135deg,#d7263d18,#00a8cc12)}h1{font-size:26px}main{max-width:520px;margin:20px auto;padding:0 16px}.sos{display:block;width:190px;height:190px;border-radius:50%;margin:16px auto;background:radial-gradient(circle at 35% 35%,#ff5a6e,var(--red));color:#fff;font-size:32px;font-weight:800;border:6px solid #fff;box-shadow:0 8px 30px rgba(215,38,61,.4);cursor:pointer}.sos:active{transform:scale(.96)}.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.06)}.num{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eef2f4;font-size:15px}.num a{background:var(--red);color:#fff;text-decoration:none;padding:6px 16px;border-radius:20px;font-weight:700;font-size:13px}.loc{background:#0e2439;color:#7fe3ff;font-family:monospace;font-size:13px;padding:12px;border-radius:10px;word-break:break-all;display:none;margin-top:12px;text-align:center}.muted{color:#678;font-size:13px}ol{margin:8px 0 0 20px}li{margin-bottom:6px;font-size:14px}footer{text-align:center;padding:26px;font-size:12px;color:#678}</style>
 </head>
 <body>
-<header><h1>🆘 ASF SOS</h1><p>Emergência rápida e localização para surfistas</p></header>
 <nav>
-<a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ App</a>
-<a href="https://acarolmourad-commits.github.io/asf-praias/">🏖️ Praias</a>
-<a href="https://acarolmourad-commits.github.io/asf-previsao/">🌊 Previsão</a>
-<a href="https://acarolmourad-commits.github.io/asf-treino/">💪 Treino</a>
-<a href="https://acarolmourad-commits.github.io/asf-diario/">📝 Diário</a>
-<a href="https://acarolmourad-commits.github.io/asf-yoga/">🧘‍♀️ Yoga</a>
-<a href="https://acarolmourad-commits.github.io/asf-eventos/">📅 Eventos</a>
-<a href="https://acarolmourad-commits.github.io/asf-glossario/">📖 Glossário</a>
-<a href="https://acarolmourad-commits.github.io/asf-comunidade/">🌸 Comunidade</a>
-<a href="https://acarolmourad-commits.github.io/asf-seguranca/">🛟 Segurança</a>
-<a class="ativo" href="https://acarolmourad-commits.github.io/asf-sos/">🆘 SOS</a>
-<a href="https://acarolmourad-commits.github.io/asf-equipamento/">🏄 Equipamento</a>
-<a href="https://acarolmourad-commits.github.io/asf-quiz/">❓ Quiz</a>
-<a href="https://acarolmourad-commits.github.io/asf-eco/">🌱 Eco</a>
-<a href="https://acarolmourad-commits.github.io/asf-mapa/">🗺️ Mapa</a>
-<a href="https://acarolmourad-commits.github.io/asf-mare/">🌙 Maré</a>
-<a href="https://acarolmourad-commits.github.io/asf-nutricao/">🥗 Nutrição</a>
+<a class="hub" href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-seguranca/">🛟</a><a href="https://acarolmourad-commits.github.io/asf-leitura/">👁️</a><a href="https://acarolmourad-commits.github.io/asf-mare/">🌙</a><a href="https://acarolmourad-commits.github.io/asf-previsao/">🌊</a><a href="https://acarolmourad-commits.github.io/asf-praias/">🏖️</a><a href="https://acarolmourad-commits.github.io/asf-treino/">💪</a><a href="https://acarolmourad-commits.github.io/asf-popup/">⏱️</a><a href="https://acarolmourad-commits.github.io/asf-desafio/">🗓️</a><a href="https://acarolmourad-commits.github.io/asf-eventos/">📅</a><a href="https://acarolmourad-commits.github.io/asf-glossario/">📖</a><a href="https://acarolmourad-commits.github.io/asf-comunidade/">💜</a><a href="https://acarolmourad-commits.github.io/asf-bemestar/">🧘</a><a href="https://acarolmourad-commits.github.io/asf-quiz/">🧠</a><a href="https://acarolmourad-commits.github.io/asf-equipamento/">🏄</a><a href="https://acarolmourad-commits.github.io/asf-nutricao/">🥑</a><a href="https://acarolmourad-commits.github.io/asf-viagens/">✈️</a><a href="https://acarolmourad-commits.github.io/asf-historia/">📜</a><a href="https://acarolmourad-commits.github.io/asf-diario/">📓</a><a href="https://acarolmourad-commits.github.io/asf-respira/">🫁</a><a href="https://acarolmourad-commits.github.io/asf-volume/">📐</a>
 </nav>
+<header><h1>🆘 ASF SOS</h1><p class="muted">Emergência no mar — sua localização e socorro em 1 toque</p></header>
 <main>
-<div class="card" style="text-align:center"><h2>Compartilhar minha localização 📍</h2>
-<p>Toque no botão para obter sua posição e gerar um link de emergência para enviar à sua rede.</p>
-<button class="sos" onclick="pegarLocal()">SOS</button><p id="coords">Toque para ativar a localização</p><div id="linkBox" style="margin-top:1rem"></div></div>
-<div class="card"><h2>Contatos de emergência 🚨</h2><div class="contatos">
-<a class="c1" href="tel:193">🚒 Bombeiros 193</a>
-<a class="c2" href="tel:192">🚑 SAMU 192</a>
-<a class="c3" href="tel:190">🚓 Polícia 190</a>
-<a class="c4" href="tel:180">💜 Ligue 180</a>
+<button class="sos" onclick="sos()">SOS<br><span style="font-size:13px;font-weight:600">obter localização</span></button>
+<div class="loc" id="loc"></div>
+<div class="card">
+<div class="num"><span>🚒 <b>Corpo de Bombeiros</b></span><a href="tel:193">193</a></div>
+<div class="num"><span>🚑 <b>SAMU</b></span><a href="tel:192">192</a></div>
+<div class="num" style="border:none"><span>🚓 <b>Polícia Militar</b></span><a href="tel:190">190</a></div>
 </div>
-<div class="alerta"><strong>⚠️ No mar:</strong> Se estiver em dificuldade, levante um braço e acene — sinal universal de socorro. Não entre em pânico e economize energia. Veja o guia completo em <a href="https://acarolmourad-commits.github.io/asf-seguranca/">ASF Segurança</a>.</div></div>
-<div class="card"><h2>Combine antes de entrar no mar 🤝</h2><p>Avise alguém da <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade ASF</a> onde vai surfar e até que horas. Cheque a <a href="https://acarolmourad-commits.github.io/asf-previsao/">previsão</a> antes de sair de casa.</p></div>
+<div class="card"><h3 style="font-size:15px;margin-bottom:6px">🌊 Se for pega por corrente de retorno</h3><ol><li>Não entre em pânico e não lute contra a corrente.</li><li>Flutue e economize energia.</li><li>Levante um braço para sinalizar socorro.</li><li>Nade paralelo à praia até sair da corrente.</li></ol><p class="muted" style="margin-top:8px">Aprenda a identificar correntes antes de entrar no <a href="https://acarolmourad-commits.github.io/asf-leitura/">ASF Leitura de Mar</a> e revise o guia de <a href="https://acarolmourad-commits.github.io/asf-seguranca/">Segurança</a>.</p></div>
 </main>
-<footer>Parte do ecossistema <a href="https://acarolmourad-commits.github.io/asf-app/">ASF — Associação de Surf Feminino</a> · Publicado via GitHub Pages</footer>
+<footer>Parte da constelação ASF • <a href="https://acarolmourad-commits.github.io/asf-app/">Voltar ao app principal</a></footer>
 <script>
-function pegarLocal(){
- const el=document.getElementById('coords');
- if(!navigator.geolocation){el.textContent='Geolocalização não suportada neste dispositivo.';return;}
- el.textContent='Obtendo localização…';
+function sos(){
+ const el=document.getElementById('loc');el.style.display='block';el.textContent='📡 Obtendo localização…';
+ if(!navigator.geolocation){el.textContent='Geolocalização não suportada neste dispositivo.';return}
  navigator.geolocation.getCurrentPosition(p=>{
-  const lat=p.coords.latitude.toFixed(5),lon=p.coords.longitude.toFixed(5);
-  const maps=`https://maps.google.com/?q=${lat},${lon}`;
-  const msg=encodeURIComponent(`🆘 ASF SOS: preciso de ajuda! Minha localização: ${maps}`);
-  el.innerHTML=`📍 Lat ${lat}, Lon ${lon} (±${Math.round(p.coords.accuracy)}m)`;
-  document.getElementById('linkBox').innerHTML=
-   `<a style="display:inline-block;padding:.8rem 1.4rem;border-radius:2rem;color:#fff;text-decoration:none;font-weight:bold;background:#27ae60" href="https://wa.me/?text=${msg}" target="_blank">📲 Enviar via WhatsApp</a> `+
-   `<a style="display:inline-block;padding:.8rem 1.4rem;border-radius:2rem;color:#fff;text-decoration:none;font-weight:bold;background:#2980b9" href="${maps}" target="_blank">🗺️ Abrir no Maps</a>`;
- },e=>{el.textContent='Não foi possível obter a localização: '+e.message;},{enableHighAccuracy:true,timeout:10000});
+  const {latitude:la,longitude:lo}=p.coords;
+  el.innerHTML='📍 Sua posição: '+la.toFixed(5)+', '+lo.toFixed(5)+'<br><a style="color:#f4d03f" href="https://www.google.com/maps?q='+la+','+lo+'" target="_blank">Abrir no Google Maps ↗</a><br>Informe estas coordenadas ao ligar 193.';
+ },()=>{el.textContent='⚠️ Não foi possível obter a localização. Diga o nome da praia e o ponto de referência mais próximo ao ligar 193.'},{timeout:8000});
 }
 </script>
 </body>
