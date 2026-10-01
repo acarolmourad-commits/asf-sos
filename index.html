@@ -4,36 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASF SOS — Emergência e geolocalização para surfistas</title>
-<meta name="description" content="Botão de emergência com geolocalização e contatos rápidos para surfistas. Satélite do app ASF.">
+<meta name="description" content="Botão de emergência com geolocalização, contatos oficiais de socorro (Bombeiros 193, SAMU 192, Marinha 185) e primeiros socorros para surfistas. Satélite do app ASF.">
 <style>
 :root{--rosa:#e63970;--areia:#fff5ee;--mar:#0b6e6e;--escuro:#12303a}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
 body{background:var(--areia);color:var(--escuro)}
 header{background:linear-gradient(135deg,#cb2d3e,#ef473a);color:#fff;padding:2.5rem 1rem;text-align:center}
-nav{background:var(--escuro);display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem;padding:.5rem;position:sticky;top:0;z-index:10}
-nav a{color:#fff;text-decoration:none;padding:.45rem .7rem;border-radius:.5rem;font-size:.85rem}
-nav a:hover,nav a.ativo{background:var(--rosa)}
-main{max-width:720px;margin:0 auto;padding:2rem 1rem}
+main{max-width:760px;margin:0 auto;padding:2rem 1rem}
 .card{background:#fff;border-radius:1rem;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .card h2{color:#cb2d3e;margin-bottom:.6rem}
+.card h3{color:var(--escuro);margin:.9rem 0 .3rem;font-size:1rem}
+.card p,.card li{font-size:.92rem;line-height:1.55}
+.card ul,.card ol{padding-left:1.2rem;margin:.4rem 0}
 .sos{display:block;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff6b6b,#c0392b);color:#fff;font-size:2rem;font-weight:bold;border:6px solid #fff;box-shadow:0 4px 20px rgba(203,45,62,.5);margin:1.5rem auto;cursor:pointer}
 .sos:active{transform:scale(.95)}
 #coords{text-align:center;color:#555;font-size:.9rem;margin-top:.5rem}
-.contatos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1rem}
-.contatos a{display:block;text-align:center;padding:1rem;border-radius:.75rem;text-decoration:none;color:#fff;font-weight:bold}
-.c1{background:#c0392b}.c2{background:#2980b9}.c3{background:#27ae60}.c4{background:#8e44ad}
+.contatos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;margin-top:1rem}
+.contatos a{display:block;text-align:center;padding:1rem .6rem;border-radius:.75rem;text-decoration:none;color:#fff;font-weight:bold;font-size:.95rem}
+.contatos small{display:block;font-weight:400;font-size:.72rem;opacity:.9;margin-top:.2rem}
+.c1{background:#c0392b}.c2{background:#2980b9}.c3{background:#27ae60}.c4{background:#8e44ad}.c5{background:#0b6e6e}.c6{background:#e67e22}
 .alerta{background:#fff3cd;border-left:4px solid #cb2d3d;border-radius:.5rem;padding:1rem;margin-top:1rem;font-size:.9rem}
+.info{background:#e8f4fd;border-left:4px solid #2980b9;border-radius:.5rem;padding:1rem;margin-top:1rem;font-size:.88rem}
 footer{background:var(--escuro);color:#cfe;padding:1.5rem;text-align:center;font-size:.85rem;margin-top:2rem}
 footer a{color:#ff9ec0}
+.btn-share{display:inline-block;padding:.8rem 1.4rem;border-radius:2rem;color:#fff;text-decoration:none;font-weight:bold;margin:.3rem}
 </style>
-<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-sos/">
+<link rel="canonical" href="https://sos.asf.surf/">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"ASF SOS","url":"https://acarolmourad-commits.github.io/asf-sos/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"ASF SOS","url":"https://sos.asf.surf/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
 </script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="ASF SOS — Emergência e geolocalização para surfistas">
-<meta property="og:description" content="Botão de emergência com geolocalização e contatos rápidos para surfistas. Satélite do app ASF.">
-<meta property="og:url" content="https://acarolmourad-commits.github.io/asf-sos/">
+<meta property="og:description" content="Botão de emergência com geolocalização e contatos oficiais de socorro para surfistas.">
+<meta property="og:url" content="https://sos.asf.surf/">
 <meta property="og:image" content="https://acarolmourad-commits.github.io/thumbnails/asf-sos.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -41,20 +44,65 @@ footer a{color:#ff9ec0}
 <meta name="twitter:image" content="https://acarolmourad-commits.github.io/thumbnails/asf-sos.jpg">
 </head>
 <body>
-<header><h1>🆘 ASF SOS</h1><p>Emergência rápida e localização para surfistas</p></header>
+<header><h1>🆘 ASF SOS</h1><p>Emergência rápida, localização e primeiros socorros para surfistas</p></header>
 
 <main>
 <div class="card" style="text-align:center"><h2>Compartilhar minha localização 📍</h2>
 <p>Toque no botão para obter sua posição e gerar um link de emergência para enviar à sua rede.</p>
 <button class="sos" onclick="pegarLocal()">SOS</button><p id="coords">Toque para ativar a localização</p><div id="linkBox" style="margin-top:1rem"></div></div>
-<div class="card"><h2>Contatos de emergência 🚨</h2><div class="contatos">
-<a class="c1" href="tel:193">🚒 Bombeiros 193</a>
-<a class="c2" href="tel:192">🚑 SAMU 192</a>
-<a class="c3" href="tel:190">🚓 Polícia 190</a>
-<a class="c4" href="tel:180">💜 Ligue 180</a>
+
+<div class="card"><h2>Contatos oficiais de emergência 🚨</h2>
+<div class="contatos">
+<a class="c1" href="tel:193">🚒 Bombeiros 193<small>Resgate, afogamento e salvamento aquático</small></a>
+<a class="c2" href="tel:192">🚑 SAMU 192<small>Urgência médica em terra</small></a>
+<a class="c5" href="tel:185">⚓ Marinha 185<small>Emergência no mar (Capitania dos Portos)</small></a>
+<a class="c3" href="tel:190">🚓 Polícia Militar 190<small>Ocorrências e segurança</small></a>
+<a class="c6" href="tel:199">⛑️ Defesa Civil 199<small>Desastres e áreas de risco</small></a>
+<a class="c4" href="tel:180">💜 Ligue 180<small>Central de atendimento à mulher</small></a>
 </div>
-<div class="alerta"><strong>⚠️ No mar:</strong> Se estiver em dificuldade, levante um braço e acene — sinal universal de socorro. Não entre em pânico e economize energia. Veja o guia completo em <a href="https://acarolmourad-commits.github.io/asf-seguranca/">ASF Segurança</a>.</div></div>
-<div class="card"><h2>Combine antes de entrar no mar 🤝</h2><p>Avise alguém da <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade ASF</a> onde vai surfar e até que horas. Cheque a <a href="https://acarolmourad-commits.github.io/asf-previsao/">previsão</a> antes de sair de casa.</p></div>
+<div class="info"><strong>🏖️ Guarda-vidas:</strong> no litoral norte de SP, os postos de guarda-vidas (GOLMAR) funcionam o ano todo nas praias urbanas de São Sebastião, Caraguatatuba, Ubatuba e Ilhabela, com reforço na Operação Verão (dezembro a março). Em dificuldade, procure o posto mais próximo ou acene para o guarda-vidas.</div>
+<div class="alerta"><strong>⚠️ No mar:</strong> se estiver em dificuldade, levante um braço e acene — sinal universal de socorro. Não entre em pânico e economize energia. Guia completo em <a href="https://acarolmourad-commits.github.io/asf-seguranca/">ASF Segurança</a>.</div></div>
+
+<div class="card"><h2>🌊 Corrente de retorno (rip current)</h2>
+<p>A corrente de retorno é a principal causa de afogamento em praias de surf. Ela puxa da areia para o fundo — <b>não tente nadar contra ela</b>.</p>
+<ol>
+<li><b>Não entre em pânico</b> — a corrente não puxa para baixo, apenas para o fundo.</li>
+<li><b>Flutue e economize energia</b> — deixe a corrente te levar até perder força (geralmente além da arrebentação).</li>
+<li><b>Nade paralelo à praia</b> por 20–50 metros até sair da faixa da corrente.</li>
+<li><b>Só então volte</b> nadando em diagonal para a areia.</li>
+<li>Se não conseguir sair, <b>acene com um braço</b> pedindo socorro.</li>
+</ol>
+<p style="margin-top:.5rem"><b>Como identificar:</b> faixa de água mais escura e calma no meio da arrebentação, espuma ou detritos indo para o fundo, canal sem ondas quebrando. Aprenda a ler a praia no <a href="https://acarolmourad-commits.github.io/asf-leitura/">ASF Leitura</a>.</p></div>
+
+<div class="card"><h2>🩹 Primeiros socorros na praia</h2>
+<h3>Afogamento</h3>
+<ul>
+<li>Retire a pessoa da água <b>somente se for seguro para você</b> — use prancha ou corda, não mergulhe sem treinamento.</li>
+<li>Chame socorro imediato: <b>193 (Bombeiros)</b> ou guarda-vidas.</li>
+<li>Se a pessoa não respira: inicie compressões torácicas (100–120 por minuto, centro do peito). Não tente "tirar água dos pulmões".</li>
+<li>Mesmo que a pessoa se recupere, <b>vá ao hospital</b>: o afogamento secundário pode ocorrer horas depois.</li>
+</ul>
+<h3>Ferroadas (água-viva, caravela, arraia)</h3>
+<ul>
+<li>Lave com água do mar (nunca água doce na hora) e aplique <b>vinagre</b> por 30 segundos para inativar nematocistos.</li>
+<li>Não esfregue, não use álcool nem urina (mito).</li>
+<li>Calor ajuda: água quente (tolerável, ~45 °C) por 20 minutos alivia a dor, especialmente de arraia.</li>
+<li>Procure atendimento se houver reação intensa, falta de ar ou ferroada no rosto/pescoço.</li>
+</ul>
+<h3>Insolação e desidratação</h3>
+<ul>
+<li>Sinais: pele quente e seca, confusão mental, dor de cabeça, náusea.</li>
+<li>Leve à sombra, resfrie o corpo (pescoço, axilas, virilha), hidrate aos poucos.</li>
+<li>Se houver desmaio ou confusão intensa: <b>SAMU 192</b> imediatamente.</li>
+</ul>
+<h3>Luxação de ombro (comum no surf)</h3>
+<ul>
+<li>Não tente recolocar o ombro no lugar.</li>
+<li>Imobilize o braço junto ao corpo (use o lycra/rashguard ou uma toalha como tipoia improvisada).</li>
+<li>Gelo envolto em toalha e avaliação médica na sequência.</li>
+</ul></div>
+
+<div class="card"><h2>Combine antes de entrar no mar 🤝</h2><p>Avise alguém da <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade ASF</a> onde vai surfar e até que horas. Cheque a <a href="https://acarolmourad-commits.github.io/asf-previsao/">previsão</a>, a <a href="https://acarolmourad-commits.github.io/asf-mare/">maré</a> e o <a href="https://acarolmourad-commits.github.io/asf-swell/">swell</a> antes de sair de casa, e revise o <a href="https://acarolmourad-commits.github.io/asf-checklist/">checklist de segurança</a>.</p></div>
 </main>
 <footer>Parte do ecossistema <a href="https://acarolmourad-commits.github.io/asf-app/">ASF — Associação de Surf Feminino</a> · Publicado via GitHub Pages</footer>
 <script>
@@ -68,8 +116,10 @@ function pegarLocal(){
   const msg=encodeURIComponent(`🆘 ASF SOS: preciso de ajuda! Minha localização: ${maps}`);
   el.innerHTML=`📍 Lat ${lat}, Lon ${lon} (±${Math.round(p.coords.accuracy)}m)`;
   document.getElementById('linkBox').innerHTML=
-   `<a style="display:inline-block;padding:.8rem 1.4rem;border-radius:2rem;color:#fff;text-decoration:none;font-weight:bold;background:#27ae60" href="https://wa.me/?text=${msg}" target="_blank">📲 Enviar via WhatsApp</a> `+
-   `<a style="display:inline-block;padding:.8rem 1.4rem;border-radius:2rem;color:#fff;text-decoration:none;font-weight:bold;background:#2980b9" href="${maps}" target="_blank">🗺️ Abrir no Maps</a>`;
+   `<a class="btn-share" style="background:#27ae60" href="https://wa.me/?text=${msg}" target="_blank">📲 Enviar via WhatsApp</a>`+
+   `<a class="btn-share" style="background:#0b6e6e" href="sms:?&body=${msg}">💬 Enviar por SMS</a>`+
+   `<a class="btn-share" style="background:#2980b9" href="${maps}" target="_blank">🗺️ Abrir no Maps</a>`+
+   `<button class="btn-share" style="background:#555;border:none;cursor:pointer" onclick="navigator.clipboard&&navigator.clipboard.writeText(decodeURIComponent('${msg}')).then(()=>this.textContent='✅ Copiado!')">📋 Copiar mensagem</button>`;
  },e=>{el.textContent='Não foi possível obter a localização: '+e.message;},{enableHighAccuracy:true,timeout:10000});
 }
 </script>
@@ -80,7 +130,7 @@ function pegarLocal(){
   function injectNav(){
     if(document.querySelector('.asf-sat-nav'))return;
     var old=document.querySelector('.asf-rede-nav');if(old)old.remove();
-    var sites=[["asf-app","\u{1F30A} App"],["asf-praias","\u{1F3D6}\uFE0F Praias"],["asf-previsao","\u{1F4C8} Previs\u00E3o"],["asf-treino","\u{1F3CB}\uFE0F Treino"],["asf-eventos","\u{1F4C5} Eventos"],["asf-glossario","\u{1F4D6} Gloss\u00E1rio"],["asf-comunidade","\u{1F4AC} Comunidade"],["asf-seguranca","\u{1F6FA} Seguran\u00E7a"],["asf-equipamento","\u{1F3C4}\u200D\u2640\uFE0F Equipamento"],["asf-quiz","\u{1F9E0} Quiz"],["asf-nutricao","\u{1F957} Nutri\u00E7\u00E3o"],["asf-viagens","\u{2708}\uFE0F Viagens"],["asf-historia","\u{1F3C6} Hist\u00F3ria"],["asf-bemestar","\u{1F9D8}\u200D\u2640\uFE0F Bem-estar"],["asf-ranking","\u{1F947} Ranking"],["asf-diario","\u{1F4D3} Di\u00E1rio"],["asf-respira","\u{1FAC1} Respira"],["asf-volume","\u{1F4D0} Volume"],["asf-yoga","\u{1F9D8} Yoga"],["asf-sos","\u{1F198} SOS"],["asf-eco","\u{1F331} Eco"]];
+    var sites=[["asf-app","\u{1F30A} App"],["asf-praias","\u{1F3D6}\uFE0F Praias"],["asf-previsao","\u{1F4C8} Previs\u00E3o"],["asf-treino","\u{1F3CB}\uFE0F Treino"],["asf-glossario","\u{1F4D6} Gloss\u00E1rio"],["asf-comunidade","\u{1F4AC} Comunidade"],["asf-seguranca","\u{1F6FA} Seguran\u00E7a"],["asf-equipamento","\u{1F3C4}\u200D\u2640\uFE0F Equipamento"],["asf-quiz","\u{1F9E0} Quiz"],["asf-nutricao","\u{1F957} Nutri\u00E7\u00E3o"],["asf-viagens","\u{2708}\uFE0F Viagens"],["asf-historia","\u{1F3C6} Hist\u00F3ria"],["asf-bemestar","\u{1F9D8}\u200D\u2640\uFE0F Bem-estar"],["asf-ranking","\u{1F947} Ranking"],["asf-diario","\u{1F4D3} Di\u00E1rio"],["asf-respira","\u{1FAC1} Respira"],["asf-volume","\u{1F4D0} Volume"],["asf-yoga","\u{1F9D8} Yoga"],["asf-sos","\u{1F198} SOS"],["asf-eco","\u{1F331} Eco"]];
     var nav=document.createElement('nav');
     nav.className='asf-sat-nav';
     nav.setAttribute('aria-label','Ecossistema ASF');
@@ -99,7 +149,7 @@ function pegarLocal(){
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',injectNav);}else{injectNav();}
 })();
 </script>
-<div id="asf-netbar" style="background:#0e2439;color:#cfe;text-align:center;padding:10px 12px;font-size:13px;font-family:system-ui,sans-serif">🌐 Parte da <a href="https://acarolmourad-commits.github.io/asf-app/" style="color:#00d4ff;font-weight:700">Rede ASF</a> · <a href="https://acarolmourad-commits.github.io/asf-app/satellites.html" style="color:#f4d03f;font-weight:700">Conheça os 52 apps da constelação →</a></div>
+<div id="asf-netbar" style="background:#0e2439;color:#cfe;text-align:center;padding:10px 12px;font-size:13px;font-family:system-ui,sans-serif">🌐 Parte da <a href="https://acarolmourad-commits.github.io/asf-app/" style="color:#00d4ff;font-weight:700">Rede ASF</a> · <a href="https://acarolmourad-commits.github.io/asf-app/satellites.html" style="color:#f4d03f;font-weight:700">Conheça os 53 apps da constelação →</a></div>
 <script src="https://acarolmourad-commits.github.io/asf-app/asf-network.js" defer></script>
 </body>
 </html>
